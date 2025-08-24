@@ -1,6 +1,6 @@
 # Families of Sets
 
-This section discusses families of sets.
+We introduce a few important families of sets.
 
 ---
 
@@ -8,6 +8,8 @@ This section discusses families of sets.
   <div class="title">Definition (Sigma-Algebra)</div>
   A **σ-algebra** over a set Ω is a family of subsets closed under complement and countable unions.
 </div>
+
+Here is some in-between text.
 
 <div class="box theorem">
   <div class="title">Theorem (Basic Property)</div>
