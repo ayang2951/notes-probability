@@ -9,7 +9,7 @@ We introduce a few important families of sets.
   A **σ-algebra** over a set Ω is a family of subsets closed under complement and countable unions.
 </div>
 
-Here is some in-between text.
+Here is some new in-between text.
 
 <div class="box theorem">
   <div class="title">Theorem (Basic Property)</div>
