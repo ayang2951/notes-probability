@@ -1,84 +1,82 @@
-/* Layout + typography (wide margins incl. top) */
+/* --- Layout --- */
 body {
-    font-family: Georgia, serif;
-    margin: 48px 18%;
-    line-height: 1.65;
-    background: #fdfdfd;
-    color: #222;
-  }
-  h1, h2, h3 { margin-top: 1.5em; }
-  
-  /* TOC below title */
-  nav#toc {
-    margin: 16px 0 24px;
-    padding: 8px 12px;
-    border-left: 3px solid #999;
-  }
-  nav#toc ul { list-style: none; padding-left: 8px; margin: 0; }
-  nav#toc li { margin: 4px 0; }
-  
-  /* Horizontal rule for separation */
-  hr {
-    border: none;
-    border-top: 2px solid #aaa;
-    margin: 2rem 0;
-  }
-  
-  /* Collapsible "Proof" blocks */
-  button.collapsible {
-    background: #f0f0f0;
-    border: 1px solid #cfcfcf;
-    cursor: pointer;
-    padding: 10px 12px;
-    margin: 10px 0 0;
-    border-radius: 8px;
-    width: 100%;
-    text-align: left;
-    transition: background 0.25s ease;
-  }
-  button.collapsible:hover { background: #e7e7e7; }
-  
-  .collapsible + .content {
-    max-height: 0;
-    overflow: hidden;
-    border-left: 2px solid #d0d0d0;
-    padding: 0 12px;
-    transition: max-height 0.35s ease;
-  }
-  .content.open {
-    /* padding stays the same; max-height is set inline by JS for smooth height animation */
-  }
-  
-  /* Theorem-like boxes with title area */
-  .box {
-    border-radius: 10px;
-    padding: 16px;
-    margin: 22px 0;
-    border-left: 6px solid;
-    background: #fff;
-  }
-  .box .title {
-    display: inline-block;
-    font-weight: 700;
-    margin-bottom: 10px;
-    padding: 4px 10px;
-    border-radius: 8px 8px 0 0;
-    color: #fff;
-  }
-  
-  /* Color schemes */
-  .definition { background: #e9f5ff; border-color: #2196f3; }
-  .definition .title { background: #2196f3; }
-  
-  .theorem { background: #fff3e0; border-color: #ff9800; }
-  .theorem .title { background: #ff9800; }
-  
-  .lemma { background: #f9fbe7; border-color: #8bc34a; }
-  .lemma .title { background: #8bc34a; }
-  
-  .proposition { background: #f3e5f5; border-color: #9c27b0; }
-  .proposition .title { background: #9c27b0; }
-  
-  /* Make large inline equations breathe a bit */
-  mjx-container { overflow-x: auto; }
-  
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 48px 18%;
+  background: #fff;
+  color: #111;
+}
+
+h1 { text-align: center; font-size: 2.3em; margin-bottom: 0.3em; }
+h2 { font-size: 1.7em; margin-top: 2em; border-bottom: 1px solid #ddd; }
+h3 { font-size: 1.3em; margin-top: 1.5em; }
+
+/* TOC */
+#toc {
+  margin: 20px 0 40px;
+  padding: 15px;
+  border: 1px solid #aaa;
+  background: #fafafa;
+}
+#toc ul { list-style: none; padding-left: 0; margin: 0; }
+#toc li { margin: 4px 0; }
+#toc a { text-decoration: none; color: #0066cc; }
+#toc a:hover { text-decoration: underline; }
+
+/* Theorem/Definition boxes */
+.box {
+  border: 1px solid #444;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 6px;
+  background: #fdfdfd;
+}
+.box .title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Color-coded types */
+.definition { border-left: 6px solid #2196F3; }
+.theorem { border-left: 6px solid #FF9800; }
+.proposition { border-left: 6px solid #9C27B0; }
+.lemma { border-left: 6px solid #4CAF50; }
+
+/* Collapsible proofs */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 12px 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.active, .collapsible:hover { background-color: #ccc; }
+.collapsible:after {
+  content: '\02795'; /* plus */
+  font-size: 13px;
+  float: right;
+  margin-left: 5px;
+}
+.active:after { content: "\2796"; } /* minus */
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+  transition: max-height 0.2s ease-out;
+  border-left: 2px solid #ddd;
+}
+
+/* Horizontal rule */
+hr { border: none; border-top: 2px solid #ccc; margin: 2em 0; }
+
+/* Math container fix */
+mjx-container { overflow-x: auto; }
