@@ -34,7 +34,8 @@ h3 { font-size: 1.3em; margin-top: 1.5em; }
 }
 .box .title {
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 6px;   /* <-- forces newline after the title */
+  display: block;
 }
 
 /* Color-coded types */
@@ -70,7 +71,7 @@ h3 { font-size: 1.3em; margin-top: 1.5em; }
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
   transition: max-height 0.2s ease-out;
   border-left: 2px solid #ddd;
 }
