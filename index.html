@@ -1,36 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Measure-Theoretic Probability Notes</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Markdown parser -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- EB Garamond + fallback to system Garamond/serif -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 
-  <!-- MathJax -->
+  <!-- Marked (Markdown parser) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- MathJax 3 (TeX + AMS + autoload) -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$','$$'], ['\\[','\\]']],
-        tags: "ams"
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        displayMath: [["$$","$$"], ["\\[","\\]"]],
+        tags: "ams",                       // automatic arabic numbering by default
+        packages: {'[+]': ['base', 'ams', 'noerrors', 'noundefined']},
+        macros: {
+          // convenience shorthands for examples:
+          rr: "\\mathbb{R}", nn: "\\mathbb{N}", pp: "\\mathbb{P}}",
+          // roman/alpha "manual tags" examples use \tag{(i)}, \tag{(a)}, etc.
+        }
+      },
+      options: {
+        skipHtmlTags: ['script','noscript','style','textarea','pre','code']
       },
       svg: { fontCache: 'global' }
     };
   </script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <script defer src="app.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Measure-Theoretic Probability</h1>
-    <p><em>Audrey Yang</em></p>
-    <nav id="toc"></nav>
-    <hr>
-    <div id="content"></div>
-  </div>
+  <header class="site-header">
+    <h1>Measure-Theoretic Probability Notes</h1>
+    <p class="subtitle">Single-page compiled from multiple Markdown files</p>
+  </header>
 
-  <script src="script.js"></script>
+  <main id="app">
+    <nav id="toc" aria-label="Table of contents"></nav>
+    <article id="content" aria-live="polite">
+      <!-- Content is injected here -->
+      <noscript>Please enable JavaScript to see the compiled notes.</noscript>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <small>
+      Typeset with MathJax. Proofs are collapsible. Sections are loaded from <code>/notes</code>.
+    </small>
+  </footer>
 </body>
 </html>
