@@ -32,27 +32,25 @@ Fields are closed under finite unions and intersections.
 Fields are closed under finite unions and intersections.
 </div>
 
+<div class="callout proposition"><span class="label">Proposition</span><br/>
+Fields are closed under finite unions and intersections.
+</div>
+
 <details class="collapsible">
-  <summary>Proof (main)</summary>
+  <summary>Proof</summary>
   <div class="collapsible__content">
-    Main proof text.
+    Main proof steps.
 
     <details class="collapsible">
-      <summary>Sub-step (A)</summary>
+      <summary>Sub-step A</summary>
       <div class="collapsible__content">
-        Sub-step content — should animate open/close as nested sub-tab.
-      </div>
-    </details>
-
-    <details class="collapsible">
-      <summary>Sub-step (B)</summary>
-      <div class="collapsible__content">
-        Another sub-step.
+        Inner reasoning — now collapses smoothly.
       </div>
     </details>
 
   </div>
 </details>
+
 
 
 

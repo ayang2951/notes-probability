@@ -1,25 +1,18 @@
-> Scratch area for lemmas, partial proofs, and templates.
-
-### Collapsible proof + sub-collapsible template
+<div class="callout proposition"><span class="label">Proposition</span><br/>
+Fields are closed under finite unions and intersections.
+</div>
 
 <details class="collapsible">
-  <summary>Lemma X.Y — Statement here</summary>
+  <summary>Proof</summary>
   <div class="collapsible__content">
+    Main proof steps.
 
-  **Proof.** Outline.
-
-  <ol class="alpha">
-    <li>First reduction…</li>
-    <li>Second step…</li>
-  </ol>
-
-  <details class="collapsible">
-    <summary>Sub-lemma A</summary>
-    <div class="collapsible__content">
-      Details…
-      $$ \sum_{n=1}^\infty a_n \text{ converges } \iff \ldots \tag{(a)} $$
-    </div>
-  </details>
+    <details class="collapsible">
+      <summary>Sub-step A</summary>
+      <div class="collapsible__content">
+        Inner reasoning — now collapses smoothly.
+      </div>
+    </details>
 
   </div>
 </details>

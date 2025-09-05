@@ -1,10 +1,7 @@
-/* =============================
-   Styles for Measure-Theoretic Notes
-   ============================= */
-
-   :root{
+:root{
     --max-w: 900px;
     --side-pad: clamp(16px, 4vw, 40px);
+  
     --accent: #4b5;
     --ink: #1b1b1b;
     --ink-faint: #606060;
@@ -18,7 +15,6 @@
     --cor-color: #c04b35;
   }
   
-  /* dark overrides */
   html[data-theme="dark"]{
     --accent: #89d3a6;
     --ink: #eaeaea;
@@ -38,22 +34,21 @@
     padding:0;
     background:var(--bg);
     color:var(--ink);
-    font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+    font-family: "EB Garamond", serif;
     line-height:1.55;
     font-size:18px;
   }
   
-  /* header: extra top spacing */
+  /* Header */
   .site-header {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 3.2rem var(--side-pad) 1.25rem;
+    padding: 3rem var(--side-pad) 1.25rem;
   }
   .site-head-inner { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
   .title-block h1 { margin:0 0 .3rem; font-size: clamp(2rem, 3vw, 2.4rem); font-weight:600; }
   .subtitle { margin:0; color:var(--ink-faint); font-style:italic; }
   
-  /* theme toggle */
   #themeToggle {
     background: color-mix(in oklab, var(--box) 85%, transparent);
     border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
@@ -62,20 +57,24 @@
     cursor:pointer;
   }
   
-  /* content area */
+  /* Content */
   #content {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 1rem var(--side-pad) 3rem;
   }
-  #content h1,#content h2,#content h3,#content h4 {
+  #content h1,#content h2,#content h3 {
     margin-top:2rem;
     margin-bottom:.8rem;
     line-height:1.2;
   }
-  #content h1 { font-size: clamp(1.9rem, 2.4vw, 2.2rem); border-bottom:1px solid color-mix(in oklab, var(--ink) 20%, transparent); padding-bottom:.4rem; }
+  #content h1 {
+    font-size: clamp(1.9rem, 2.4vw, 2.2rem);
+    border-bottom:1px solid color-mix(in oklab, var(--ink) 20%, transparent);
+    padding-bottom:.4rem;
+  }
   
-  /* callouts */
+  /* Callouts */
   .callout {
     border-left: 3px solid var(--accent);
     background: var(--box);
@@ -91,62 +90,37 @@
   .callout.corollary   { border-left-color: var(--cor-color); }
   .callout.remark      { border-left-color: color-mix(in oklab, var(--ink) 30%, transparent); }
   
-  /* -------------------------
-     Collapsibles (smooth, height-based)
-     ------------------------- */
+  /* Collapsibles */
   .collapsible {
     border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
     border-radius:8px;
     background: color-mix(in oklab, var(--box) 80%, transparent);
     margin: 1rem 0;
-    overflow: visible; /* important so nested details' outlines are visible */
   }
   .collapsible summary {
     cursor:pointer;
     list-style:none;
     padding:.75rem 1rem;
-    display:flex;
-    align-items:center;
-    gap:.5rem;
+    display:flex; align-items:center; gap:.5rem;
     font-weight:700;
-    user-select: none;
   }
   .collapsible summary::-webkit-details-marker { display:none; }
   .collapsible summary::before {
     content: "▸";
-    transition: transform .22s ease;
+    transition: transform .2s ease;
     color: var(--accent);
   }
   .collapsible[open] > summary::before { transform: rotate(90deg); }
-  
-  /* inner wrapper that is animated using height */
   .collapsible__content {
-    height: 0;
-    overflow: hidden;
-    transition: height .28s ease, padding .22s ease;
-    padding-inline: 1rem;
-    padding-block-start: 0.5rem;
-    padding-block-end: 0;
-    will-change: height;
+    height:0;
+    overflow:hidden;
+    transition: height .28s ease, padding .2s ease;
+    padding-inline:1rem;
+    padding-block-start:.5rem;
+    padding-block-end:0;
   }
-  .collapsible[open] .collapsible__content {
-    padding-block-end: .75rem;
-  }
-  
-  /* nested collapisble indentation */
-  .collapsible .collapsible { margin-left: 1rem; }
-  
-  /* lists and code */
-  ol.alpha { list-style-type: lower-alpha; }
-  ol.roman { list-style-type: lower-roman; }
-  ol.ARABIC { list-style-type: decimal; }
-  
-  pre, code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-    background: color-mix(in oklab, var(--box) 85%, transparent);
-    border-radius:6px;
-  }
-  pre { padding:.8rem; overflow:auto; }
+  .collapsible[open] .collapsible__content { padding-block-end:.75rem; }
+  .collapsible .collapsible { margin-left:1rem; }
   
   /* TOC */
   #toc {
@@ -155,10 +129,7 @@
     padding: .5rem var(--side-pad) 0;
   }
   #toc .toc-list {
-    display:flex;
-    flex-wrap:wrap;
-    gap:.5rem .9rem;
-    padding:.4rem 0 1rem;
+    display:flex; flex-wrap:wrap; gap:.5rem .9rem; padding:.4rem 0 1rem;
   }
   #toc .toc-list a {
     display:inline-block;
@@ -172,6 +143,8 @@
   }
   #toc .toc-list a:hover { background: var(--accent); color:#fff; }
   
-  /* small footer */
+  /* Misc */
+  pre, code { font-family: ui-monospace, monospace; background: color-mix(in oklab, var(--box) 85%, transparent); border-radius:6px; }
+  pre { padding:.8rem; overflow:auto; }
   .site-footer { max-width:var(--max-w); margin:0 auto; padding:1rem var(--side-pad); color:var(--ink-faint); font-size:.9rem; }
   
