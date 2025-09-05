@@ -7,6 +7,6 @@ Events $A$ and $B$ are independent if $\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{
 <details class="collapsible">
   <summary>Independence of sigma-fields</summary>
   <div class="collapsible__content">
-    Algebraic and measure-theoretic definitions; product measure consequences.
+    general def.
   </div>
 </details>

@@ -16,7 +16,7 @@
   }
   
   html[data-theme="dark"]{
-    --accent: #89d3a6;
+    --accent: #b5b5b5;
     --ink: #c5c5c5;
     --ink-faint: #b6b6b6;
     --bg: #0e0f10;

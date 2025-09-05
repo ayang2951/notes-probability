@@ -33,10 +33,12 @@ Fields are closed under finite unions and intersections.
 </details>
 
 <div class="callout proposition"><span class="label">Proposition</span><br/>
-Fields are closed under finite unions and intersections.
+prop text.
 </div>
 
-
+<div class="callout remark"><span class="label">Remark</span><br/>
+remark text.
+</div>
 
 ## π and λ Systems
 
@@ -44,13 +46,13 @@ Fields are closed under finite unions and intersections.
 (Dynkin’s π–λ) If $\mathcal{D}$ is a λ-system containing a π-system $\mathcal{P}$, then $\sigma(\mathcal{P}) \subseteq \mathcal{D}$.
 </div>
 
-### Equation numbering examples
+### Equation numbering template
 
-Default (AMS automatic):
+default:
 $$ \liminf_{n\to\infty} A_n \subseteq \limsup_{n\to\infty} A_n. $$
 
-Manual alphabetic tag:
+alphabetic:
 $$ \bigcap_{n=m}^\infty A_n \subseteq \bigcup_{n=m}^\infty A_n \tag{(a)} $$
 
-Manual roman tag:
+roman:
 $$ (\limsup A_n)^c = \liminf (A_n^c) \tag{(i)} $$
