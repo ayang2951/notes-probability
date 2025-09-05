@@ -28,6 +28,33 @@ Fields are closed under finite unions and intersections.
   </div>
 </details>
 
+<div class="callout proposition"><span class="label">Proposition</span><br/>
+Fields are closed under finite unions and intersections.
+</div>
+
+<details class="collapsible">
+  <summary>Proof (main)</summary>
+  <div class="collapsible__content">
+    Main proof text.
+
+    <details class="collapsible">
+      <summary>Sub-step (A)</summary>
+      <div class="collapsible__content">
+        Sub-step content — should animate open/close as nested sub-tab.
+      </div>
+    </details>
+
+    <details class="collapsible">
+      <summary>Sub-step (B)</summary>
+      <div class="collapsible__content">
+        Another sub-step.
+      </div>
+    </details>
+
+  </div>
+</details>
+
+
 
 ## π and λ Systems
 
