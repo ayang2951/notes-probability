@@ -14,8 +14,7 @@ const ORDERED_NOTES = [
   { file: "productspaces.md", title: "Product Spaces" },
   { file: "independence.md", title: "Independence" },
   { file: "convergence.md", title: "Convergence" },
-  { file: "conditionalexpectation.md", title: "Conditional Expectation" },
-  { file: "_fragments.md", title: "Fragments / Scratch" }
+  { file: "conditionalexpectation.md", title: "Conditional Expectation" }
 ];
 
 function $id(id){ return document.getElementById(id); }
