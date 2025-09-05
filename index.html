@@ -3,38 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Measure-Theoretic Probability Notes</title>
+  <title>Elementary Probability</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- ===== Early theme setter (prevents flash / ensures toggle works immediately) ===== -->
+  <script>
+    (function () {
+      try {
+        const stored = localStorage.getItem('theme'); // "light" | "dark"
+        let theme = stored;
+        if (!theme) {
+          theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* ignore in restricted contexts */ }
+    })();
+  </script>
 
   <!-- EB Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Marked -->
+  <!-- Marked (Markdown parser) -->
   <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <!-- MathJax -->
+  <!-- MathJax 3 -->
   <script>
     window.MathJax = {
       tex: {
         inlineMath: [["$", "$"], ["\\(", "\\)"]],
         displayMath: [["$$","$$"], ["\\[","\\]"]],
         tags: "ams",
-        packages: {'[+]': ['base', 'ams', 'noerrors', 'noundefined']}
+        packages: {'[+]': ['base','ams','noerrors','noundefined']}
       },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
       svg: { fontCache: 'global' }
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
+  <!-- App JS -->
   <script defer src="app.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <h1>Measure-Theoretic Probability Notes</h1>
-    <p class="subtitle">Single-page compiled from multiple Markdown files</p>
-    <button id="themeToggle" aria-label="Toggle light/dark mode">🌗</button>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;">
+      <div>
+        <h1>Measure-Theoretic Probability Notes</h1>
+        <p class="subtitle">Single-page compiled from multiple Markdown files</p>
+      </div>
+      <div>
+        <!-- Toggle button; icon will be updated by app.js on load -->
+        <button id="themeToggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light/dark">🌗</button>
+      </div>
+    </div>
   </header>
 
   <main id="app">
@@ -46,7 +69,7 @@
 
   <footer class="site-footer">
     <small>
-      Typeset with MathJax. Proofs are collapsible. Sections are loaded from <code>/notes</code>.
+      Audrey Yang
     </small>
   </footer>
 </body>

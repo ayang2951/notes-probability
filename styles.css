@@ -1,21 +1,39 @@
+/* Basic layout & typography */
 :root {
     --max-w: 900px;
     --side-pad: clamp(16px, 4vw, 40px);
+  
+    /* Light theme defaults */
     --accent: #4b5;
     --ink: #1b1b1b;
     --ink-faint: #606060;
     --bg: #fafaf8;
     --box: #f0efe9;
   
-    /* Callout colors */
-    --def-color: #4b8;    /* Definition */
-    --thm-color: #58a;    /* Theorem */
-    --lem-color: #a85;    /* Lemma */
-    --prop-color: #b45;   /* Proposition */
-    --cor-color: #c55;    /* Corollary */
+    /* Callout colors (light) */
+    --def-color: #4b8;
+    --thm-color: #58a;
+    --lem-color: #a85;
+    --prop-color: #b45;
+    --cor-color: #c55;
   }
   
-  body[data-theme="dark"] {
+  /* Explicit light theme (keeps things deterministic when html[data-theme="light"]) */
+  html[data-theme="light"] {
+    --accent: #4b5;
+    --ink: #1b1b1b;
+    --ink-faint: #606060;
+    --bg: #fafaf8;
+    --box: #f0efe9;
+    --def-color: #4b8;
+    --thm-color: #58a;
+    --lem-color: #a85;
+    --prop-color: #b45;
+    --cor-color: #c55;
+  }
+  
+  /* Dark theme overrides */
+  html[data-theme="dark"] {
     --accent: #89d3a6;
     --ink: #eaeaea;
     --ink-faint: #b6b6b6;
@@ -34,31 +52,35 @@
     padding: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family: "EB Garamond", Garamond, serif;
+    font-family: "EB Garamond", Garamond, "Times New Roman", serif;
     line-height: 1.55;
     font-size: 18px;
   }
   
+  /* Header & toggle */
   .site-header {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 1.25rem var(--side-pad);
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
   }
-  
   #themeToggle {
-    align-self: flex-start;
-    background: var(--box);
-    border: 1px solid var(--ink-faint);
-    border-radius: 6px;
-    padding: .3rem .6rem;
+    background: color-mix(in oklab, var(--box) 85%, transparent);
+    border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+    border-radius: 8px;
+    padding: .35rem .6rem;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   
-  /* Callout boxes */
+  /* Content area */
+  #content {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 1rem var(--side-pad) 3rem;
+    background: transparent;
+  }
+  
+  /* Callout styles */
   .callout {
     border-left: 3px solid var(--accent);
     background: var(--box);
@@ -66,16 +88,16 @@
     border-radius: 6px;
     margin: 1rem 0;
   }
-  .callout .label { font-variant: small-caps; font-weight: 600; }
+  .callout .label { font-variant: small-caps; font-weight: 600; color: var(--ink-faint); }
   
-  /* Special flavors */
-  .callout.definition { border-left-color: var(--def-color); }
-  .callout.theorem { border-left-color: var(--thm-color); }
-  .callout.lemma { border-left-color: var(--lem-color); }
+  /* Flavored callouts */
+  .callout.definition  { border-left-color: var(--def-color); }
+  .callout.theorem     { border-left-color: var(--thm-color); }
+  .callout.lemma       { border-left-color: var(--lem-color); }
   .callout.proposition { border-left-color: var(--prop-color); }
-  .callout.corollary { border-left-color: var(--cor-color); }
+  .callout.corollary   { border-left-color: var(--cor-color); }
   
-  /* Collapsibles */
+  /* Collapsibles (animated) */
   .collapsible {
     border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
     border-radius: 8px;
@@ -90,20 +112,37 @@
     display: flex; align-items: center; gap: .5rem;
     font-weight: 600;
   }
+  .collapsible summary::-webkit-details-marker { display:none; }
   .collapsible summary::before {
     content: "▸";
     transition: transform .25s ease;
     color: var(--accent);
   }
   .collapsible[open] > summary::before { transform: rotate(90deg); }
+  
+  /* animated inner wrapper */
   .collapsible__content {
     block-size: 0;
     overflow: clip;
     transition: block-size .28s ease;
     padding-inline: 1rem;
   }
-  .collapsible[open] .collapsible__content {
-    padding-block-end: .75rem;
-  }
+  .collapsible[open] .collapsible__content { padding-block-end: .75rem; }
+  
+  /* nested */
   .collapsible .collapsible { margin-left: 1rem; }
+  
+  /* list styles for examples */
+  ol.alpha { list-style-type: lower-alpha; }
+  ol.roman { list-style-type: lower-roman; }
+  ol.ARABIC { list-style-type: decimal; }
+  
+  /* small niceties */
+  pre, code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    background: color-mix(in oklab, var(--box) 85%, transparent);
+    padding: .5rem;
+    border-radius: 6px;
+  }
+  #toc { max-width: var(--max-w); margin: 0 auto; padding: .5rem var(--side-pad) 0; }
   
