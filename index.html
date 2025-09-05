@@ -7,29 +7,21 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- EB Garamond + fallback to system Garamond/serif -->
+  <!-- EB Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Marked (Markdown parser) -->
+  <!-- Marked -->
   <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <!-- MathJax 3 (TeX + AMS + autoload) -->
+  <!-- MathJax -->
   <script>
     window.MathJax = {
       tex: {
         inlineMath: [["$", "$"], ["\\(", "\\)"]],
         displayMath: [["$$","$$"], ["\\[","\\]"]],
-        tags: "ams",                       // automatic arabic numbering by default
-        packages: {'[+]': ['base', 'ams', 'noerrors', 'noundefined']},
-        macros: {
-          // convenience shorthands for examples:
-          rr: "\\mathbb{R}", nn: "\\mathbb{N}", pp: "\\mathbb{P}}",
-          // roman/alpha "manual tags" examples use \tag{(i)}, \tag{(a)}, etc.
-        }
-      },
-      options: {
-        skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+        tags: "ams",
+        packages: {'[+]': ['base', 'ams', 'noerrors', 'noundefined']}
       },
       svg: { fontCache: 'global' }
     };
@@ -42,12 +34,12 @@
   <header class="site-header">
     <h1>Measure-Theoretic Probability Notes</h1>
     <p class="subtitle">Single-page compiled from multiple Markdown files</p>
+    <button id="themeToggle" aria-label="Toggle light/dark mode">🌗</button>
   </header>
 
   <main id="app">
     <nav id="toc" aria-label="Table of contents"></nav>
     <article id="content" aria-live="polite">
-      <!-- Content is injected here -->
       <noscript>Please enable JavaScript to see the compiled notes.</noscript>
     </article>
   </main>
