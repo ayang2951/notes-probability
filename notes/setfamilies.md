@@ -14,32 +14,20 @@ Fields are closed under finite unions and intersections.
 </div>
 
 <details class="collapsible">
-  <summary>Proof (expand)</summary>
+  <summary>Proof</summary>
   <div class="collapsible__content">
-    <p>We show closure under union and intersection.</p>
+    Step reasoning.
 
     <details class="collapsible">
-      <summary>Step 1 — Union case</summary>
+      <summary>Sub-step A</summary>
       <div class="collapsible__content">
-        <p>If $A,B\in\mathcal{F}_0$ then $A\cup B\in\mathcal{F}_0$ by assumption.</p>
-      </div>
-    </details>
-
-    <details class="collapsible">
-      <summary>Step 2 — Intersection case (sub-collapsible)</summary>
-      <div class="collapsible__content">
-        <p>Use De Morgan: $A\cap B=(A^c\cup B^c)^c$, and the right-hand side is in $\mathcal{F}_0$.</p>
-        <details class="collapsible">
-          <summary>Sub-step: De Morgan identity</summary>
-          <div class="collapsible__content">
-            <p>The identity is straightforward and left as an exercise.</p>
-          </div>
-        </details>
+        Inner detail — works now.
       </div>
     </details>
 
   </div>
 </details>
+
 
 ## π and λ Systems
 
