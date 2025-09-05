@@ -1,4 +1,3 @@
-/* Basic layout & typography */
 :root {
     --max-w: 900px;
     --side-pad: clamp(16px, 4vw, 40px);
@@ -11,20 +10,6 @@
     --box: #f0efe9;
   
     /* Callout colors (light) */
-    --def-color: #4b8;
-    --thm-color: #58a;
-    --lem-color: #a85;
-    --prop-color: #b45;
-    --cor-color: #c55;
-  }
-  
-  /* Explicit light theme (keeps things deterministic when html[data-theme="light"]) */
-  html[data-theme="light"] {
-    --accent: #4b5;
-    --ink: #1b1b1b;
-    --ink-faint: #606060;
-    --bg: #fafaf8;
-    --box: #f0efe9;
     --def-color: #4b8;
     --thm-color: #58a;
     --lem-color: #a85;
@@ -57,12 +42,24 @@
     font-size: 18px;
   }
   
-  /* Header & toggle */
+  /* Header */
   .site-header {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 1.25rem var(--side-pad);
+    padding: 3rem var(--side-pad) 1.25rem; /* extra top space */
   }
+  .site-header h1 {
+    margin: 0 0 .3rem;
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 600;
+  }
+  .subtitle {
+    margin: 0;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  
+  /* Theme toggle button */
   #themeToggle {
     background: color-mix(in oklab, var(--box) 85%, transparent);
     border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
@@ -72,15 +69,26 @@
     font-size: 1.05rem;
   }
   
-  /* Content area */
+  /* Main content */
   #content {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 1rem var(--side-pad) 3rem;
-    background: transparent;
   }
+  #content h1, #content h2, #content h3 {
+    margin-top: 2rem;
+    margin-bottom: .8rem;
+    line-height: 1.2;
+  }
+  #content h1 {
+    font-size: clamp(1.9rem, 2.4vw, 2.3rem);
+    border-bottom: 1px solid color-mix(in oklab, var(--ink) 20%, transparent);
+    padding-bottom: .4rem;
+  }
+  #content h2 { font-size: clamp(1.5rem, 2vw, 1.7rem); }
+  #content h3 { font-size: clamp(1.25rem, 1.6vw, 1.35rem); }
   
-  /* Callout styles */
+  /* Callouts */
   .callout {
     border-left: 3px solid var(--accent);
     background: var(--box);
@@ -89,15 +97,13 @@
     margin: 1rem 0;
   }
   .callout .label { font-variant: small-caps; font-weight: 600; color: var(--ink-faint); }
-  
-  /* Flavored callouts */
   .callout.definition  { border-left-color: var(--def-color); }
   .callout.theorem     { border-left-color: var(--thm-color); }
   .callout.lemma       { border-left-color: var(--lem-color); }
   .callout.proposition { border-left-color: var(--prop-color); }
   .callout.corollary   { border-left-color: var(--cor-color); }
   
-  /* Collapsibles (animated) */
+  /* Collapsibles */
   .collapsible {
     border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
     border-radius: 8px;
@@ -119,8 +125,6 @@
     color: var(--accent);
   }
   .collapsible[open] > summary::before { transform: rotate(90deg); }
-  
-  /* animated inner wrapper */
   .collapsible__content {
     block-size: 0;
     overflow: clip;
@@ -128,21 +132,46 @@
     padding-inline: 1rem;
   }
   .collapsible[open] .collapsible__content { padding-block-end: .75rem; }
-  
-  /* nested */
   .collapsible .collapsible { margin-left: 1rem; }
   
-  /* list styles for examples */
+  /* Lists */
   ol.alpha { list-style-type: lower-alpha; }
   ol.roman { list-style-type: lower-roman; }
   ol.ARABIC { list-style-type: decimal; }
   
-  /* small niceties */
+  /* Code blocks */
   pre, code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     background: color-mix(in oklab, var(--box) 85%, transparent);
-    padding: .5rem;
-    border-radius: 6px;
   }
-  #toc { max-width: var(--max-w); margin: 0 auto; padding: .5rem var(--side-pad) 0; }
+  pre {
+    padding: .8rem; border-radius: 6px; overflow-x: auto;
+  }
+  
+  /* TOC buttons */
+  #toc {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: .5rem var(--side-pad) 0;
+  }
+  #toc .toc-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem .9rem;
+    padding: .4rem 0 1rem;
+  }
+  #toc .toc-list a {
+    display: inline-block;
+    padding: .2rem .6rem;
+    border-radius: 5px;
+    background: color-mix(in oklab, var(--box) 80%, transparent);
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid color-mix(in oklab, var(--ink) 15%, transparent);
+    transition: background .2s ease;
+  }
+  #toc .toc-list a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
   
