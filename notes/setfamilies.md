@@ -1,12 +1,16 @@
-> _Scaffold: Fields, σ-fields, π/λ systems, Dynkin’s lemma._
+> _Overview: We introduce a few critical set families, including fields, σ-fields, and π & λ systems._
 
-## Fields and σ-Fields
+## σ-Fields
+
+Here, we will introduce one of the most critical definitions in measure theory. This definition is the first bit of scaffolding upon which measure theory is built.
 
 <div class="callout definition"><span class="label">Definition</span><br/>
-A <em>field</em> (algebra) $\mathcal{F}_0$ on $\Omega$ satisfies:
-(i) $\Omega \in \mathcal{F}_0$,
-(ii) if $A\in \mathcal{F}_0$ then $A^c\in \mathcal{F}_0$,
-(iii) if $A,B\in\mathcal{F}_0$ then $A\cup B\in\mathcal{F}_0$.
+Let $\Omega$ be a space. A class $\mathcal{F}$ on $\Omega$ is called a <strong><em>$\sigma$-field</strong></em> or a <strong><em>$\sigma$-algebra</strong></em> if the following properties hold:
+<ol type="i">
+  <li>$\Omega \in \mathcal F$.</li>
+  <li>For all sets $A \in \mathcal F$, $A^c \in \mathcal F$.</li>
+  <li>For sets $A_1, A_2 \ldots A_n \ldots \in \mathcal F, \bigcup_{i = 1}^\infty A_i \in \mathcal F$.</li>
+</ol>
 </div>
 
 <div class="callout proposition"><span class="label">Proposition</span><br/>
@@ -31,26 +35,6 @@ Fields are closed under finite unions and intersections.
 <div class="callout proposition"><span class="label">Proposition</span><br/>
 Fields are closed under finite unions and intersections.
 </div>
-
-<div class="callout proposition"><span class="label">Proposition</span><br/>
-Fields are closed under finite unions and intersections.
-</div>
-
-<details class="collapsible">
-  <summary>Proof</summary>
-  <div class="collapsible__content">
-    Main proof steps.
-
-    <details class="collapsible">
-      <summary>Sub-step A</summary>
-      <div class="collapsible__content">
-        Inner reasoning — now collapses smoothly.
-      </div>
-    </details>
-
-  </div>
-</details>
-
 
 
 
