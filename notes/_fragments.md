@@ -1,14 +1,14 @@
-> _Scratchpad for in-progress lemmas, etc._
+> Scratch area for lemmas, partial proofs, and templates.
 
-### Collapsible proof template (copy/paste)
+### Collapsible proof + sub-collapsible template
 
 <details class="collapsible">
-  <summary>Theorem X.Y — Statement here</summary>
+  <summary>Lemma X.Y — Statement here</summary>
   <div class="collapsible__content">
 
   **Proof.** Outline.
 
-  <ol class="roman">
+  <ol class="alpha">
     <li>First reduction…</li>
     <li>Second step…</li>
   </ol>

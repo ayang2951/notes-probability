@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Elementary Probability</title>
+  <title>Measure-Theoretic Probability Notes</title>
   <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- ===== Early theme setter (prevents flash / ensures toggle works immediately) ===== -->
+  <!-- Early theme setter (prevents flash) -->
   <script>
-    (function () {
+    (function(){
       try {
         const stored = localStorage.getItem('theme'); // "light" | "dark"
         let theme = stored;
@@ -17,25 +16,31 @@
           theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
         }
         document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) { /* ignore in restricted contexts */ }
+      } catch (e) { /* ignore */ }
     })();
   </script>
 
   <!-- EB Garamond -->
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Marked (Markdown parser) -->
+  <!-- Marked (Markdown -> HTML) -->
   <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <!-- MathJax 3 -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]],
-        displayMath: [["$$","$$"], ["\\[","\\]"]],
-        tags: "ams",
-        packages: {'[+]': ['base','ams','noerrors','noundefined']}
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        tags: 'ams',
+        packages: {'[+]': ['base','ams','noerrors','noundefined']},
+        macros: {
+          rr: "\\mathbb{R}",
+          nn: "\\mathbb{N}",
+          pp: "\\mathbb{P}"
+        }
       },
       options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
       svg: { fontCache: 'global' }
@@ -43,18 +48,18 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-  <!-- App JS -->
+  <!-- Our app -->
   <script defer src="app.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:1rem;">
-      <div>
-        <h1>Elementary Probability</h1>
+    <div class="site-head-inner">
+      <div class="title-block">
+        <h1>Measure-Theoretic Probability Notes</h1>
+        <p class="subtitle">Single-page compiled from multiple Markdown files</p>
       </div>
-      <div>
-        <!-- Toggle button; icon will be updated by app.js on load -->
-        <button id="themeToggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light/dark">🌗</button>
+      <div class="controls">
+        <button id="themeToggle" aria-label="Toggle color theme" aria-pressed="false" title="Toggle theme">🌗</button>
       </div>
     </div>
   </header>
@@ -67,9 +72,7 @@
   </main>
 
   <footer class="site-footer">
-    <small>
-      Audrey Yang
-    </small>
+    <small>Typeset with MathJax. Proofs are collapsible. Sections load from <code>/notes</code>.</small>
   </footer>
 </body>
 </html>
